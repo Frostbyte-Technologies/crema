@@ -18,12 +18,12 @@ export default async function CandidatesPage({ searchParams }: PageProps<"/admin
   const { status: filter = "all" } = await searchParams;
 
   const subCount = db
-    .select({ inviteId: submissions.inviteId, n: count().as("n") })
+    .select({ inviteId: submissions.inviteId, subs: count().as("subs") })
     .from(submissions)
     .groupBy(submissions.inviteId)
     .as("sc");
   const revCount = db
-    .select({ inviteId: reviews.inviteId, n: count().as("n") })
+    .select({ inviteId: reviews.inviteId, revs: count().as("revs") })
     .from(reviews)
     .groupBy(reviews.inviteId)
     .as("rc");
@@ -32,8 +32,8 @@ export default async function CandidatesPage({ searchParams }: PageProps<"/admin
     .select({
       invite: invites,
       assessmentTitle: assessments.title,
-      subs: sql<number>`coalesce(${subCount.n}, 0)`.mapWith(Number),
-      revs: sql<number>`coalesce(${revCount.n}, 0)`.mapWith(Number),
+      subs: sql<number>`coalesce(${subCount.subs}, 0)`.mapWith(Number),
+      revs: sql<number>`coalesce(${revCount.revs}, 0)`.mapWith(Number),
     })
     .from(invites)
     .innerJoin(assessments, eq(assessments.id, invites.assessmentId))

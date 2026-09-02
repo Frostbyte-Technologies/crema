@@ -14,20 +14,20 @@ export const dynamic = "force-dynamic";
 
 export default async function AssessmentsPage() {
   const stageCount = db
-    .select({ assessmentId: stages.assessmentId, n: count().as("n") })
+    .select({ assessmentId: stages.assessmentId, stages: count().as("stages") })
     .from(stages)
     .groupBy(stages.assessmentId)
     .as("st");
   const inviteCount = db
-    .select({ assessmentId: invites.assessmentId, n: count().as("n") })
+    .select({ assessmentId: invites.assessmentId, invites: count().as("invites") })
     .from(invites)
     .groupBy(invites.assessmentId)
     .as("iv");
   const rows = await db
     .select({
       a: assessments,
-      stages: sql<number>`coalesce(${stageCount.n}, 0)`.mapWith(Number),
-      invites: sql<number>`coalesce(${inviteCount.n}, 0)`.mapWith(Number),
+      stages: sql<number>`coalesce(${stageCount.stages}, 0)`.mapWith(Number),
+      invites: sql<number>`coalesce(${inviteCount.invites}, 0)`.mapWith(Number),
     })
     .from(assessments)
     .leftJoin(stageCount, eq(stageCount.assessmentId, assessments.id))
