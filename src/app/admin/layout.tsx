@@ -33,7 +33,7 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
               await signOut({ redirectTo: "/login" });
             }}
           >
-            <Button variant="ghost" size="sm" className="text-xs text-muted-foreground">
+            <Button type="submit" variant="ghost" size="sm" className="text-xs text-muted-foreground">
               Out
             </Button>
           </form>

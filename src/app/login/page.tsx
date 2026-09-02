@@ -21,7 +21,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
             await signIn("google", { redirectTo: "/admin/candidates" });
           }}
         >
-          <Button size="lg" className="w-full">
+          <Button type="submit" size="lg" className="w-full">
             Continue with Google
           </Button>
         </form>

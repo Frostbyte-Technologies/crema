@@ -38,7 +38,7 @@ export default async function AssessmentsPage() {
     <>
       <PageHeader crumbs={[{ label: "Assessments" }]}>
         <form action={createAssessment}>
-          <Button size="sm">
+          <Button type="submit" size="sm">
             <PlusIcon /> New assessment
           </Button>
         </form>

@@ -19,7 +19,7 @@ export default async function AssessmentPage({ params }: PageProps<"/admin/asses
     <>
       <PageHeader crumbs={[{ label: "Assessments", href: "/admin/assessments" }, { label: a.title }]}>
         <form action={setArchived.bind(null, a.id, !a.archived)}>
-          <Button variant="ghost" size="sm" className="text-muted-foreground">
+          <Button type="submit" variant="ghost" size="sm" className="text-muted-foreground">
             {a.archived ? "Unarchive" : "Archive"}
           </Button>
         </form>
