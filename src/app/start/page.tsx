@@ -12,7 +12,7 @@ export default async function StartPage({ searchParams }: PageProps<"/start">) {
       <div className="w-full max-w-sm space-y-8">
         <div className="space-y-2">
           <div className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Dripos</div>
-          <h1 className="text-2xl font-semibold tracking-tight">Engineering takehome</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">Crema</h1>
           <p className="text-sm text-muted-foreground">
             Enter the invite code you received. The timer starts the first time you sign in, so open this
             when you are ready to work.

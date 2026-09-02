@@ -15,9 +15,9 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
       <aside className="flex w-56 shrink-0 flex-col border-r bg-sidebar">
         <div className="flex h-12 items-center gap-2 px-4">
           <span className="flex size-5 items-center justify-center rounded bg-primary text-[10px] font-bold text-primary-foreground">
-            D
+            C
           </span>
-          <span className="text-sm font-semibold tracking-tight">Takehome</span>
+          <span className="text-sm font-semibold tracking-tight">Crema</span>
         </div>
         <SidebarNav />
         <div className="mt-auto flex items-center gap-2 border-t p-3">

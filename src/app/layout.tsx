@@ -8,8 +8,8 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Dripos Takehome", template: "%s · Dripos Takehome" },
-  description: "Engineering takehome assessments",
+  title: { default: "Crema", template: "%s · Crema" },
+  description: "Dripos engineering takehomes",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
